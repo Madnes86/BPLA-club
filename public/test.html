@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lb3</title>
+</head>
+
+<body>
+    <div id="figures"></div>
+    <div id="matrix"></div>
+</body>
+</html>
+
+<script>
+    function task1() {
+        const SIZE = Number(prompt("Введите размер фигуры (вариант 7)"));
+        const figures = document.getElementById('figures');
+        for (let i = 1; SIZE >= i; i++) {
+            const element = document.createElement('div');
+            element.style = 'display: flex';
+            figures.appendChild(element);
+            for (let j = 1; i >= j; j++) {
+                const elementX = document.createElement('div');
+                if (i == 1 || i == SIZE || j == 1 || j == i) {
+                    elementX.textContent = "#";
+                } 
+                else {
+                    elementX.textContent = "0";
+                }
+                element.appendChild(elementX);
+                
+            }
+        }
+    }
+
+    function task2() {
+        const matrix = document.getElementById('matrix');
+        const a = prompt("Введите число строки остановки матрицы до 10");
+        const b = prompt("Введите число столбца остановки до 10");
+        let stopFlag = false;
+        outer:
+
+        for (let i = 1; 10 >= i; i++) {
+            const row = document.createElement('div');
+            row.style = 'display: flex';
+            matrix.appendChild(row);
+            for (let j = 1; 10 >= j; j++) {
+                if (i == a && j == b) {
+                    stopFlag = true;
+                    break outer;
+                }
+                const element = document.createElement('div');
+                element.textContent = i*j;
+                element.style = 'width: 23px';
+                row.appendChild(element);
+            }
+        }
+        
+        if (stopFlag) {
+            setTimeout(() => {
+                alert('Работа завершена!');
+            }, 500);
+        }
+    }
+    task3();
+
+    function task3() {
+        const string = prompt('Введите массив');
+        let Array = string.split(' ');
+        let stopFlag = true;
+        Array.forEach(element => {
+            if (element % 2 != 0) {
+                stopFlag = false;
+            } 
+        });
+        alert(stopFlag);
+
+    }
+
+    function task4() {
+        const n = prompt("Введите количество грузовиков");
+           
+    }
+</script>
